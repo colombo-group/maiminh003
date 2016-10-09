@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Máy tính</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">
+      input[type='text'] {
+        width:50px;
+        
+      }
+      div {
+        text-align:center;
+      }
+    </style>
+    
+    
+  </head>
+  
+  <body>
+    <script type="text/javascript">
+      function calculator(value) {
+        var num1 = document.getElementById('num1').value;
+        var num2 = document.getElementById('num2').value;
+        num1 = parseInt(num1);
+        num2 = parseInt(num2);
+        if(value === '^') {
+          var result = document.getElementById('result').value = eval(Math.pow(num1,num2));
+        }
+        else {
+          var result = document.getElementById('result').value = eval(num1+value+num2);
+        }
+      }
+    </script>
+
+    <div>
+      <input type="text" id="num1" />
+      <input type="button" value="+" onclick="calculator('+')"/>
+      <input type="button" value="-" onclick="calculator('-')"/>
+      <input type="button" value="*" onclick="calculator('*')"/>
+      <input type="button" value="/" onclick="calculator('/')"/>
+      <input type="button" value="^" onclick="calculator('^')"/>
+      <input type="text" id="num2" />
+      <span>=</span>
+      <input type="text" id="result" />
+    </div>
+  </body>
+</html>

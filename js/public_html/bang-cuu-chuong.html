@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+
+      <SCRIPT LANGUAGE="JavaScript">
+        
+        function multilTable() {
+          var i,j;
+          document.write("<table border=1 cellpadding=3px cellspacing=3px>");
+          document.write("<tr>");
+          for(i=1;i<=5;i++) {
+            
+            document.write("<td>");
+            for(j=1;j<=10;j++) {
+              
+              document.write(i +"*"+ j +"="+ i*j+'<br>');
+              
+            }
+            document.write("</td>");
+            
+          }
+          document.write("</tr>");
+          document.write("<tr>");
+          for(i=6;i<=10;i++) {
+            
+            document.write("<td>");
+            for(j=1;j<=10;j++) {
+              
+              document.write(i +"*"+ j +"="+ i*j+'<br>');
+              
+            }
+            document.write("</td>");
+            
+          }
+          document.write("</tr>");
+
+          document.write("</table>");
+        }
+        multilTable();
+      </SCRIPT>
+      
+
+
+
+  </body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Charts</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">
+      .table {
+        margin:0 auto;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div id="all" >
+
+      <table class="table">
+
+        <tr>
+          <td>Anh</td>
+          <td><input type="text" id="anh"/></td>
+        </tr>
+        <tr>
+          <td>Phap</td>
+          <td><input type="text" id="phap"/></td>
+        </tr>
+        <tr>
+          <td>Duc</td>
+          <td><input type="text" id="duc"/></td>
+        </tr>
+        <tr>
+          <td>Nga</td>
+          <td><input type="text" id="nga"/></td>
+        </tr>
+        <tr>
+          <td colspan="2"><button onclick="drawChart()">Ve do thi</button>
+          <td></td>
+        </tr>
+      </table>
+
+      <table border="1px" class="table">
+        <tr>
+          <td>Anh</td>
+          <td><div id="anhC" ></div></td>
+        </tr>
+        <tr>
+          <td>Phap</td>
+          <td><div id="phapC"></div></td>
+        </tr>
+        <tr>
+          <td>Duc</td>
+          <td><div id="ducC"></div></td>
+        </tr>
+        <tr>
+          <td>Nga</td>
+          <td><div id="ngaC"></div></td>
+        </tr>
+      </table>
+
+    </div>
+    <script>
+
+      var myArray = new Array();
+      myArray[0] = "Anh";
+      myArray[1] = "Phap";
+      myArray[2] = "Duc";
+      myArray[3] = "Nga";
+      var id = new Array('anhC', 'phapC', 'ducC', 'ngaC');
+      function drawChart() {
+        var anh = document.getElementById('anh').value;
+        var phap = document.getElementById('phap').value;
+        var duc = document.getElementById('duc').value;
+        var nga = document.getElementById('nga').value;
+        var country = new Array(anh, phap, duc, nga);
+        //show the charts
+        for (i = 0; i < myArray.length; i++) {
+          if(country[i] != 0) {
+            document.getElementById(id[i]).innerHTML = country[i]+'%';
+            document.getElementById(id[i]).setAttribute("style",' width:'+country[i]+'px;background-color:red;height:20px;');
+          }
+          else {
+            document.getElementById(id[i]).innerHTML = '0%';
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

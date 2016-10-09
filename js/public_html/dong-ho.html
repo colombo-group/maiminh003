@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>watch</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/watch.css" />
+    
+  </head>
+  <body>
+    <div class="time">
+        <input type="text" id="showTime" value="00:00.0"/>
+        <button onclick="start()">Start</button>
+        <button onclick="stop()">Stop</button>
+        <button onclick="reset()">Reset</button>
+    </div>
+    <script>
+      var minutes=0,seconds=0,milliseconds=0,milliCount=0;
+      var count=0,divTime;
+      function timeCount() {
+        if(minutes<10)  m='0';
+        else m ='';
+        if(seconds<10) s='0';
+        else s = '';
+        
+        document.getElementById("showTime").value =m+minutes+":"+s+seconds+'.'+Math.floor(milliseconds/10);
+        milliseconds++;
+        if(Math.floor(milliseconds/10)===9) {
+          milliseconds = 0;
+          seconds++;
+        }
+        if(seconds === 60) {
+          minutes++;
+          seconds = 0;
+        }
+        divTime = setTimeout(function() { timeCount(); },10);
+        
+      }
+      function start() {
+        if(!count){
+          count=1;
+          timeCount();
+        }
+      }
+      function stop() {
+        clearTimeout(divTime);
+        count=0;
+      }
+      function reset() {
+        minutes=0;
+        seconds=0;
+        milliseconds=0;
+        milliCount=0;
+        stop();
+        document.getElementById("showTime").value =m+minutes+":"+s+seconds+'.'+Math.floor(milliseconds/10);
+      }
+    </script>
+    
+    
+      
+  </body>
+</html>
