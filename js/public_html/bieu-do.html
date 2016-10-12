@@ -73,8 +73,15 @@
         var duc = document.getElementById('duc').value;
         var nga = document.getElementById('nga').value;
         var country = new Array(anh, phap, duc, nga);
+        for(i = 0;i< country.length; i++) {
+          if(isNaN(country[i])) {
+            alert('Your input is wrong!');
+            exit;
+          }
+        }
         //show the charts
         for (i = 0; i < myArray.length; i++) {
+          
           if(country[i] != 0) {
             document.getElementById(id[i]).innerHTML = country[i]+'%';
             document.getElementById(id[i]).setAttribute("style",' width:'+country[i]+'px;background-color:red;height:20px;');
